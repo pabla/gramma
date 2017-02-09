@@ -1,0 +1,27 @@
+.item {
+  color: #000;
+  transition: color .3s;
+}
+
+.variant {
+  cursor: pointer;
+}
+
+.result {
+}
+
+.selectedResult {
+  font-weight: 700;
+}
+
+.correctResult {
+  color: #090;
+}
+
+.incorrectResult {
+  color: #999;
+}
+
+.incorrectResult.selectedResult {
+  color: #f00;
+}

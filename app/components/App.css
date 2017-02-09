@@ -1,0 +1,18 @@
+.root {
+  margin: 50px;
+}
+
+.results {
+  margin: 1em 0;
+}
+
+.button {
+  cursor: pointer;
+  height: 36px;
+  text-transform: uppercase;
+  display: inline-block;
+  line-height: 36px;
+  white-space: nowrap;
+  padding: 0 16px;
+  background-color: #FAEEA4;
+}
