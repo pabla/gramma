@@ -1,8 +1,9 @@
 const test = require('ava');
 const { shuffleTest } = require('./tests');
 
-test('foo', t => {
+test('shuffle test', t => {
   const data = {
+    id: 1,
     title: 'First Conditional',
     questions: [
       {
@@ -48,6 +49,7 @@ test('foo', t => {
     ],
   };
   const shuffled = shuffleTest(data);
+  t.is(shuffled.id, data.id);
   t.truthy(shuffled);
   t.not(shuffled, data);
 });

@@ -1,7 +1,8 @@
 import shuffle from 'lodash/shuffle';
+
 export const CHANGE_TEST = 'CHANGE_TEST';
 
-function changeTest(test) {
+export function changeTest(test) {
   return {
     type: CHANGE_TEST,
     test,
@@ -10,11 +11,19 @@ function changeTest(test) {
 
 export function shuffleTest(test) {
   return {
-    title: test.title,
+    ...test,
     questions: shuffle(test.questions).map(question => ({
-      title: question.title,
+      ...question,
       answers: shuffle(question.answers),
     })),
+  };
+}
+
+export const CLEAR_SKIPPED_TESTS = 'CLEAR_SKIPPED_TESTS';
+
+export function clearSkippedTests() {
+  return {
+    type: CLEAR_SKIPPED_TESTS,
   };
 }
 
@@ -35,10 +44,16 @@ function getTest(id) {
 }
 
 export function fetchRandom() {
-  return dispatch => {
+  return (dispatch, getState) => {
     getContents()
       .then(contents => {
         const ids = contents.map(test => test.id);
+        const state = getState();
+        let availableIds = ids.filter(id => !state.tests.skippedIds.includes(id));
+        if (availableIds.length === 0) {
+          availableIds = ids;
+          dispatch(clearSkippedTests());
+        }
         const id = ids[Math.floor(Math.random() * ids.length)];
         return getTest(id);
       })
