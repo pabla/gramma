@@ -35,7 +35,8 @@
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
     "redux-logger": "^2.7.4",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "whatwg-fetch": "^2.0.2"
   },
   "ava": {
     "require": [
@@ -47,7 +48,12 @@
     "env": {
       "development": {
         "presets": [
-          ["es2015", {"modules": false}],
+          [
+            "es2015",
+            {
+              "modules": false
+            }
+          ],
           "react",
           "stage-3"
         ],
@@ -57,7 +63,12 @@
       },
       "production": {
         "presets": [
-          ["es2015", {"modules": false}],
+          [
+            "es2015",
+            {
+              "modules": false
+            }
+          ],
           "react",
           "stage-3"
         ]
