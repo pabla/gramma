@@ -1,6 +1,12 @@
 .item {
-  color: #000;
-  transition: color .3s;
+  transition: color .3s, background-color .3s;
+  background-color: #cc9;
+  padding: 8px 16px;
+  background-color: #FAEEA4;
+}
+
+.item + .item {
+  margin-top: 1em;
 }
 
 .variant {
@@ -8,6 +14,7 @@
 }
 
 .result {
+  background-color: transparent;
 }
 
 .selectedResult {

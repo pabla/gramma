@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react';
+import styles from './Question.css';
 
 const Question = ({ title, children }) => (
   <div>
     <div dangerouslySetInnerHTML={{ __html: title }} />
-    <ul>
+    <ul className={styles.items}>
       {children}
     </ul>
   </div>
